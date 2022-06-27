@@ -1,0 +1,45 @@
+#carousel .gallery {
+  width: 90%;
+  height: 450px;
+  margin: 30px auto;
+  position: relative;
+}
+
+#carousel .gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+#carousel .gallery img.active {
+  display: block;
+}
+
+.bi {
+  position: absolute;
+  width: 30px;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(212, 211, 211, 0.362);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bi:hover {
+  background-color: rgba(212, 211, 211, 0.6);
+}
+
+.bi::before, [class^="bi-"]::before, [class*=" bi-"]::before {
+  vertical-align: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: black;
+}
+
+#btn-prev {
+  right: 0;
+}

@@ -23,7 +23,7 @@
 
 .bi {
   position: absolute;
-  width: 30px;
+  width: 40px;
   top: 0;
   bottom: 0;
   background-color: rgba(212, 211, 211, 0.362);
@@ -41,10 +41,10 @@
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  font-size: 30px;
+  font-size: 40px;
   color: black;
 }
 
-#btn-prev {
+#btn-next {
   right: 0;
 }

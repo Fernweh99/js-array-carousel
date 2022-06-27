@@ -1,13 +1,12 @@
 /*
-MILESTONE 2 :
-Adesso rimuoviamo tutto il markup statico e inseriamo
-le immagini dinamicamente servendoci dell'array fornito 
-e un semplice ciclo for. Possiamo concatenare una stringa
-con un template literal oppure utilizzare gli altri metodi
-di manipolazione del DOM che abbiamo visto insieme.
-Al termine di questa fase ci ritroveremo con lo stesso
-slider, ma costruito dinamicamente attraverso JavaScript.
+MILESTONE 3
+Al click dell'utente sulle frecce, l'immagine attiva cambia e
+diventa visibile nello slider, prendendo il posto della precedente.
 */
+
+// Richiamo i bottoni
+const nextButton = document.getElementById("btn-next");
+const prevButton = document.getElementById("btn-prev");
 
 // Richiamo la classe gallery dal DOM
 const gallery = document.querySelector(".gallery-image");
@@ -26,3 +25,39 @@ for (let i = 0; i < images.length; i++) {
 
 //stampo su pagina la stringa pronta con le immagini
 gallery.innerHTML = galleryImages;
+
+// Richiamo le immagini del carousel dal DOM
+const imgDom = document.querySelectorAll(".gallery-image img");
+
+// creo una variabile per l'index current
+let currentIndexActive = 0;
+imgDom[currentIndexActive].classList.add("active");
+
+// Creo un evento sul bottone next per andare avanti con le immagini
+nextButton.addEventListener("click", function() {
+
+  imgDom[currentIndexActive].classList.remove("active");
+
+  currentIndexActive++;
+  
+  // Se il currentIndexActive supera la lunghezza dell'array riparto da 0
+  if (currentIndexActive >= imgDom.length) {
+    currentIndexActive = 0;
+  }
+
+  imgDom[currentIndexActive].classList.add("active");
+});
+
+// Creo un evento sul bottone prev per andare indietro con le immagini
+prevButton.addEventListener("click", function() {
+
+  imgDom[currentIndexActive].classList.remove("active");
+
+  currentIndexActive--;
+  // se il currentIndexActive è scende sotto lo zero riparto dall'ultimo oggetto dell'array
+  if (currentIndexActive < 0) {
+    currentIndexActive = imgDom.length - 1;
+  }
+
+  imgDom[currentIndexActive].classList.add("active");
+});

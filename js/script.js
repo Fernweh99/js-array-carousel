@@ -61,3 +61,4 @@ prevButton.addEventListener("click", function() {
 
   imgDom[currentIndexActive].classList.add("active");
 });
+

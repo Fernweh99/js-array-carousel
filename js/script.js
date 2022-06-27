@@ -26,39 +26,46 @@ for (let i = 0; i < images.length; i++) {
 //stampo su pagina la stringa pronta con le immagini
 gallery.innerHTML = galleryImages;
 
-// Richiamo le immagini del carousel dal DOM
-const imgDom = document.querySelectorAll(".gallery-image img");
+// Richiamo le immagini da gallery-images dal DOM
+const imgGalleryDom = document.querySelectorAll(".gallery-image img");
+
+const imgFigureDom = document.querySelectorAll("figure img");
 
 // creo una variabile per l'index current
 let currentIndexActive = 0;
-imgDom[currentIndexActive].classList.add("active");
+imgGalleryDom[currentIndexActive].classList.add("active");
+imgFigureDom[currentIndexActive].classList.add("active");
 
 // Creo un evento sul bottone next per andare avanti con le immagini
 nextButton.addEventListener("click", function() {
 
-  imgDom[currentIndexActive].classList.remove("active");
+  imgGalleryDom[currentIndexActive].classList.remove("active");
+  imgFigureDom[currentIndexActive].classList.remove("active");
 
   currentIndexActive++;
   
   // Se il currentIndexActive supera la lunghezza dell'array riparto da 0
-  if (currentIndexActive >= imgDom.length) {
+  if (currentIndexActive >= imgGalleryDom.length) {
     currentIndexActive = 0;
   }
 
-  imgDom[currentIndexActive].classList.add("active");
+  imgGalleryDom[currentIndexActive].classList.add("active");
+  imgFigureDom[currentIndexActive].classList.add("active");
 });
 
 // Creo un evento sul bottone prev per andare indietro con le immagini
 prevButton.addEventListener("click", function() {
 
-  imgDom[currentIndexActive].classList.remove("active");
+  imgGalleryDom[currentIndexActive].classList.remove("active");
+  imgFigureDom[currentIndexActive].classList.remove("active");
 
   currentIndexActive--;
   // se il currentIndexActive è scende sotto lo zero riparto dall'ultimo oggetto dell'array
   if (currentIndexActive < 0) {
-    currentIndexActive = imgDom.length - 1;
+    currentIndexActive = imgGalleryDom.length - 1;
   }
 
-  imgDom[currentIndexActive].classList.add("active");
+  imgGalleryDom[currentIndexActive].classList.add("active");
+  imgFigureDom[currentIndexActive].classList.add("active");
 });
 

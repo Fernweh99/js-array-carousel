@@ -12,14 +12,14 @@ const prevButton = document.getElementById("btn-prev");
 const gallery = document.querySelector(".gallery-image");
 
 // Creo l'array
-const images = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg"];
+const sources = ["img/01.jpg", "img/02.jpg", "img/03.jpg", "img/04.jpg", "img/05.jpg"];
 
 //creo una variabile per concatenare le immagini e stamparle su pagina
 let galleryImages = "";
 
 //Eseguo un for per concatenare e creare la stinga con tutte le immagini
-for (let i = 0; i < images.length; i++) {
-  galleryImages += `<img src="img/${images[i]}" alt="image${i + 1}" />`;
+for (let i = 0; i < sources.length; i++) {
+  galleryImages += `<img src="${sources[i]}" alt="image${i + 1}" />`;
 
 }
 
